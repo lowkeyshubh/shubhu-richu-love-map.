@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff5f6">
+<title>Shubhu × Richu — Our Little World</title>
+<style>
+  :root { --ink:#4c2938; --rose:#b85d7c; --pink:#f6dce5; --paper:#fffaf6; --muted:#8e6d79; }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); font-family: Georgia, "Times New Roman", serif;
+    background: radial-gradient(circle at 10% 0%, #ffeaf0 0, transparent 32%),
+                radial-gradient(circle at 100% 40%, #fce8e1 0, transparent 28%), var(--paper); }
+  .wrap { width:min(760px, 100%); margin:auto; padding:24px 17px 42px; }
+  .hero { text-align:center; padding:30px 15px 22px; }
+  .eyebrow { letter-spacing:.22em; text-transform:uppercase; font: 11px/1.5 Arial,sans-serif; color:var(--rose); }
+  h1 { font-size:clamp(35px, 9vw, 58px); line-height:1.02; font-weight:normal; margin:15px 0 12px; }
+  h1 span { color:var(--rose); font-style:italic; }
+  .sub { color:var(--muted); font:14px/1.7 Arial,sans-serif; max-width:420px; margin:0 auto; }
+  .rule { width:65px; height:1px; background:#dba7b8; margin:24px auto; }
+  .map { position:relative; overflow:hidden; min-height:225px; border:1px solid #eed3dc; border-radius:24px;
+    background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,235,240,.8)),
+    repeating-linear-gradient(28deg, transparent 0 31px, rgba(191,120,148,.11) 32px 33px); padding:18px; }
+  .map:before,.map:after { content:""; position:absolute; border:1px solid rgba(184,93,124,.18); border-radius:50%; width:260px;height:260px; }
+  .map:before { left:-100px;top:60px; } .map:after { right:-115px;top:-110px; }
+  .map-title { position:relative; z-index:1; font:11px Arial,sans-serif; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+  .route { position:relative; z-index:1; display:flex; flex-direction:column; gap:12px; margin:17px 0 0 5px; }
+  .pin { display:flex; align-items:center; gap:12px; width:100%; border:1px solid #efd5de; background:rgba(255,250,246,.9);
+    color:var(--ink); border-radius:16px; padding:12px; text-align:left; cursor:pointer; font:inherit; transition:transform .15s, border-color .15s; }
+  .pin:active { transform:scale(.985); } .pin:hover { border-color:#cf8ca4; }
+  .num { display:grid; place-items:center; width:37px;height:37px; flex:0 0 37px; border-radius:50%; background:var(--pink); color:#9b4769; font:13px Arial,sans-serif; }
+  .pin strong { display:block; font-size:16px; font-weight:normal; }
+  .pin small { display:block; margin-top:4px; color:var(--muted); font:12px/1.4 Arial,sans-serif; }
+  .hint { text-align:center; color:var(--muted); font:12px Arial,sans-serif; margin:12px 0 0; }
+  .letter { margin-top:20px; padding:24px 21px; border-radius:22px; background:rgba(255,255,255,.75); border:1px solid #efd5de; box-shadow:0 10px 35px rgba(120,58,81,.06); }
+  .letter .tag { font:10px Arial,sans-serif; text-transform:uppercase; letter-spacing:.18em; color:var(--rose); }
+  h2 { font-weight:normal; font-size:27px; margin:10px 0 12px; }
+  #message { font-size:18px; line-height:1.75; white-space:pre-line; }
+  .signature { color:var(--rose); font-style:italic; font-size:20px; margin-top:18px; }
+  .secret { margin-top:17px; width:100%; border:0; border-radius:14px; padding:14px 16px; background:#8f4562; color:white;
+    font:13px Arial,sans-serif; letter-spacing:.03em; cursor:pointer; }
+  .secret:hover { background:#773650; }
+  .hidden-note { display:none; margin-top:14px; padding:16px; background:#fff0f4; border-radius:14px; line-height:1.7; }
+  .hidden-note.show { display:block; animation:fade .35s ease; }
+  .footer { text-align:center; padding:28px 10px 0; color:var(--muted); font:12px/1.8 Arial,sans-serif; }
+  .heart { color:var(--rose); font-size:20px; }
+  @keyframes fade { from {opacity:0;transform:translateY(5px)} to {opacity:1;transform:translateY(0)} }
+  @media (min-width:600px) { .route { display:grid; grid-template-columns:1fr; max-width:560px; margin-left:auto; margin-right:auto; } .map { padding:24px; } .letter { padding:30px; } }
+  @media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="eyebrow">A little map, a lot of feelings</div>
+    <h1>Shubhu <span>×</span> Richu</h1>
+    <p class="sub">Not quite the same place yet, but part of the same little story.</p>
+    <div class="rule"></div>
+    <div class="heart">♡</div>
+  </header>
+
+  <section class="map" aria-label="Interactive love map">
+    <div class="map-title">Our little journey · tap a stop</div>
+    <div class="route">
+      <button class="pin" data-stop="0"><span class="num">01</span><span><strong>Where your journey begins</strong><small>Nageshwarpur · Malda · West Bengal</small></span></button>
+      <button class="pin" data-stop="1"><span class="num">02</span><span><strong>A little closer to my world</strong><small>Ayodhya · Uttar Pradesh</small></span></button>
+      <button class="pin" data-stop="2"><span class="num">03</span><span><strong>Our future meeting</strong><small>A place we'll choose together someday</small></span></button>
+    </div>
+    <p class="hint">These are story stops, not live location tracking.</p>
+  </section>
+
+  <section class="letter" aria-live="polite">
+    <div class="tag" id="chapter">A note for you · 01</div>
+    <h2 id="heading">Where your journey begins</h2>
+    <div id="message">Every beautiful journey has a beginning. Yours brought you a little closer to my world, and that alone makes this trip feel special to me.</div>
+    <div class="signature" id="signature">— Your Shubhu ♡</div>
+    <button class="secret" id="secretBtn">Open one little secret ♡</button>
+    <div class="hidden-note" id="secretNote">Richu, I wish I could be there to welcome you myself. I hope your time in UP becomes a beautiful memory—and someday, we get to make one together. ❤️</div>
+  </section>
+  <footer class="footer">
+    Made just for Richu, with love.<br>
+    <span class="heart">♡</span> Until the day our paths meet.
+  </footer>
+</main>
+<script>
+const stops = [
+  { title:"Where your journey begins", sub:"A note for you · 01", message:"Every beautiful journey has a beginning. Yours brought you a little closer to my world, and that alone makes this trip feel special to me." },
+  { title:"A little closer to my world", sub:"A note for you · 02", message:"You're here in Uttar Pradesh, Richu. I can't welcome you in person today, but knowing you're here makes this place feel a little more special. I hope you collect lovely memories on this trip." },
+  { title:"Our future meeting", sub:"A note for you · 03", message:"This pin is for a day that hasn't happened yet. One day, I hope we get to stand beside each other and laugh about how we once had to imagine this moment through a screen. Until then, this little pin can hold our hope." }
+];
+document.querySelectorAll(".pin").forEach(btn => btn.addEventListener("click", () => {
+  const s = stops[Number(btn.dataset.stop)];
+  document.getElementById("heading").textContent = s.title;
+  document.getElementById("chapter").textContent = s.sub;
+  document.getElementById("message").textContent = s.message;
+  document.getElementById("secretNote").classList.remove("show");
+  document.getElementById("secretBtn").textContent = "Open one little secret ♡";
+}));
+document.getElementById("secretBtn").addEventListener("click", () => {
+  const note = document.getElementById("secretNote");
+  note.classList.toggle("show");
+  document.getElementById("secretBtn").textContent = note.classList.contains("show") ? "Keep this little secret ♡" : "Open one little secret ♡";
+});
+</script>
+</body>
+</html>

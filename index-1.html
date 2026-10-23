@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8e9e4">
+<title>For Richu ♡</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 20% 10%,#fff7ef,#f4d9d8 55%,#e8c6c7);color:#593748;font-family:Georgia,serif}
+.wrap{width:min(520px,100%);text-align:center}.eyebrow{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#a5657b}
+h1{font-weight:normal;font-size:clamp(32px,8vw,48px);margin:12px 0 8px}.sub{font:14px/1.6 Arial,sans-serif;color:#906a79;margin:0 auto 26px}
+.stage{perspective:1000px;margin:0 auto 22px;width:min(340px,88vw);height:225px;position:relative;cursor:pointer}
+.envelope{position:absolute;inset:20px 0 0;background:#d9b9a4;border-radius:5px;box-shadow:0 18px 32px #70465a25;overflow:hidden}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49.5%,#c8a18f 50%),linear-gradient(225deg,transparent 49.5%,#e7cbbb 50%);z-index:2}
+.flap{position:absolute;top:20px;left:0;width:100%;height:125px;background:#eed7c8;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s ease;z-index:4;filter:drop-shadow(0 3px 2px #81556725)}
+.seal{position:absolute;z-index:5;top:105px;left:calc(50% - 23px);width:46px;height:46px;border-radius:50%;background:#b85d7b;color:#fff1f2;display:grid;place-items:center;font-size:25px;box-shadow:0 4px 9px #78415835;transition:opacity .3s}
+.paper{position:absolute;left:7%;width:86%;height:180px;top:28px;background:#fff9ee;border:1px solid #ead6c9;box-shadow:0 5px 15px #70465a15;padding:20px 17px;text-align:left;line-height:1.6;font-size:15px;transition:transform 1s ease;z-index:1}
+.open .flap{transform:rotateX(180deg);z-index:0}.open .seal{opacity:0}.open .paper{transform:translateY(-115px);transition-delay:.35s}
+.tap{font:12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9e6077;margin-top:5px}
+.letter{display:none;text-align:left;background:#fff9f1dd;border:1px solid #e8cbd0;border-radius:18px;padding:24px 22px;box-shadow:0 12px 35px #7c4a5a13;line-height:1.85;font-size:17px;animation:fade .5s ease}
+.letter.show{display:block}.letter h2{font-weight:normal;font-size:25px;margin:0 0 14px}.sign{font-style:italic;color:#a35373;font-size:20px;margin-top:18px}
+button{border:0;background:#87435e;color:white;border-radius:30px;padding:13px 21px;font-size:13px;letter-spacing:.04em;margin-top:20px;cursor:pointer}
+footer{font:11px Arial,sans-serif;color:#9a7180;margin-top:22px}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body><main class="wrap">
+<div class="eyebrow">A little something, just for you</div>
+<h1>For my Richu ♡</h1>
+<p class="sub">A tiny welcome from your favourite person.<br>Tap the envelope to open it, princess.</p>
+<div class="stage" id="stage" role="button" tabindex="0" aria-label="Open the letter">
+<div class="envelope"></div><div class="paper">For my Richu ♡<br><br>There's something I wanted to tell you now that you're here…</div>
+<div class="flap"></div><div class="seal">♡</div>
+</div>
+<div class="tap" id="tap">Tap to open ♡</div>
+<section class="letter" id="letter">
+<h2>Richuuu, welcome to UP 🎀</h2>
+I wish I could be there to welcome you in person, but I'm genuinely so happy knowing you're finally here. It feels special knowing we're in the same state, even if we're still far apart. ❤️‍🩹
+<br><br>
+I just wish I could see you, even for a few minutes. For now, enjoy your trip, make beautiful memories, and keep smiling, okay?
+<br><br>
+Someday, I hope I won't have to welcome you through a screen. No distance, no imagining—just you and me, finally making our own memories together. 🥹❤️
+<br><br>
+Welcome to UP, princess. I'm so happy you're here.
+<div class="sign">With love,<br>Your Shubhu ♡</div>
+</section>
+<button id="reopen" style="display:none">Read it again ♡</button>
+<footer>Made with love · Shubhu × Richu</footer>
+</main>
+<script>
+const stage=document.getElementById('stage'),letter=document.getElementById('letter'),tap=document.getElementById('tap'),reopen=document.getElementById('reopen');
+function openLetter(){stage.classList.add('open');tap.textContent='A little note for you ♡';setTimeout(()=>{letter.classList.add('show');reopen.style.display='inline-block';},650)}
+stage.addEventListener('click',openLetter);stage.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter()}});
+reopen.addEventListener('click',()=>{letter.classList.remove('show');stage.classList.remove('open');reopen.style.display='none';tap.textContent='Tap to open ♡';});
+</script></body></html>
